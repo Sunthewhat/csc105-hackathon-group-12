@@ -8,11 +8,11 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 
 const connection = mysql.createConnection({
-  host: "server2.bsthun.com",
-  port: "6105",
-  user: "lab_16jhkx",
-  password: "SqJj6le5ZWS61lTQ",
-  database: "lab_blank01_163hqvb",
+  host: "db.cshack.site",
+  port: "3306",
+  user: "group12",
+  password: "208218262",
+  database: "group12",
 });
 
 dotenv.config();
@@ -34,7 +34,9 @@ app.use(bodyParser.json({ type: "application/json" }));
 
 app.use(cookieParser());
 
-app.get("/", require("./endpoints/test"));
+app.get("/test", require("./endpoints/endpoint_test"));
+app.post("/register", require("./endpoints/endpoint_register"));
+app.post("/login", require("./endpoints/endpoint_login"));
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
