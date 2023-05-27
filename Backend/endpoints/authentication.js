@@ -57,6 +57,7 @@ const login = (req, res) => {
 const register = async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
+  const email = req.body.email;
   const query = util.promisify(connection.query).bind(connection);
 
   try {
@@ -82,10 +83,10 @@ const register = async (req, res) => {
 
     const hashed_password = await bcrypt.hash(password, 10);
 
-    sql = mysql.format("INSERT INTO users (username,password) VALUES (?,?)", [
-      username,
-      hashed_password,
-    ]);
+    sql = mysql.format(
+      "INSERT INTO users (username,email,password) VALUES (?,?,?)",
+      [username, email, hashed_password]
+    );
 
     console.log("/register => " + sql);
     await query(sql);
