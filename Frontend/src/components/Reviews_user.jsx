@@ -12,9 +12,20 @@ function Reviews_user() {
                 margin-top: 30px;
             }
 
-            
-
-            
+            .image-btn{
+                background-color: #2A8A92;
+                width: 150px;
+                color: white;
+                font-weight: bold;
+                font-size: 14px;
+                border: none;
+                padding: 10px;
+                border-radius: 100px;
+                cursor: pointer;
+                margin-top: 25px;
+                align-self: center;
+                margin-bottom: 20px;
+            }
             `}
         </style>
         <div className="app-card-review">
@@ -29,15 +40,15 @@ function Reviews_user() {
               <p>BABEGONZ</p>
             </div>
           </div>
-          <div className="reviews-info" style={{marginLeft: "80px", marginTop:"-50px", paddingBottom:"10px"}}>
-            <div className="header-reviews" style={{fontSize:"18px", fontWeight:"bold", marginTop:"30px"}}>
+          <div className="reviews-info" style={{marginLeft: "80px", marginTop:"-50px"}}>
+            <div className="header-reviews" style={{fontSize:"18px", fontWeight:"bold", marginTop:"30px", paddingTop:"0px"}}>
                 <p>This place is XXXXXXXX</p>
             </div>
-            <div className="text-des-review">
-                <p>This place is XXXXXXCCCCCCCCCCCCCCCXX</p>
+            <div className="text-des-review" style={{marginTop:"-10px"}}>
+                <p>This place is XXXXXXCCfgfdgfdCCCCCCCCCCCCCXX</p>
             </div>
           </div>
-          <div className="seeing-photo">
+          <div className="seeing-photo" style={{marginTop:"-20px", display:"flex", justifyContent: "flex-end", marginRight:"30px"}}>
             <button
                 className="image-btn"
                 type="submit"

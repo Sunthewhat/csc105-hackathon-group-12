@@ -1,6 +1,13 @@
+import { Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 function TopVisitedBeach(props) {
+  const navigate = useNavigate();
   return (
-    <>
+    <div
+      onClick={() => {
+        navigate(`/location/${props.id}`);
+      }}>
       <style>
         {`
         .card{
@@ -47,11 +54,12 @@ function TopVisitedBeach(props) {
             <img className="pic-div" src={props.cover_url} alt="jetski"></img>
           </div>
           <div className="text-act">
-            <h3>{props.name}</h3>
+            <Typography marginTop={"5%"} fontWeight={"bold"} fontSize={"120%"}>{props.name}</Typography>
+            <Typography fontSize={"100%"}>{props.location}</Typography>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -44,6 +44,7 @@ app.use(cookieParser());
 app.get("/test", testRoute.login);
 app.post("/register", Authentication.register);
 app.post("/login", Authentication.login);
+app.post("/logout", Authentication.logout);
 //Reviews
 app.get("/review/:location_id", reviews.read);
 app.post("/review/:location_id", auth_middleware, reviews.create);
@@ -56,7 +57,7 @@ app.get("/location/popular", location.getPopular);
 app.get("/location/:id", location.get);
 //Comments
 app.get("/comment/:Id", comment.getByReview);
-app.post("/comment/:Id",auth_middleware, comment.create);
+app.post("/comment/:Id", auth_middleware, comment.create);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

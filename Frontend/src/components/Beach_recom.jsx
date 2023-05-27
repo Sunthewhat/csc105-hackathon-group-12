@@ -1,11 +1,7 @@
 import { Typography } from "@mui/material";
-import ActivityList from "../../components/activityList";
+import ActivityList from "./activityList";
 
-function Beach_recom() {
-  const locations_id = 3;
-  const location = {
-    slogan: "ISLAND OF PRISTINE BEAUTY",
-  };
+function Beach_recom(props) {
 
   return (
     <>
@@ -95,12 +91,12 @@ function Beach_recom() {
             marginTop={"35vh"}
             paddingLeft={"5vh"}
             marginBottom={"5vh"}>
-            {location.slogan}
+            {props.slogan}
           </Typography>
           <div
             className="location-card-profile-page"
             style={{ marginLeft: "30px" }}>
-            <ActivityList id={locations_id} />
+            <ActivityList id={props.id} />
           </div>
         </div>
       </div>

@@ -118,8 +118,15 @@ const getProfile = async (req, res) => {
     });
   }
 };
+
+const logout = async (req, res) => {
+  res.clearCookie("jwt_token");
+  res.send();
+}
+
 module.exports = {
   login,
+  logout,
   register,
   getProfile,
 };

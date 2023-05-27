@@ -69,12 +69,35 @@ function GuideTrip() {
             scroll-behavior: smooth;
           }
 
+          .app-guide-view{
+            width: 100vw;
+            height: 90vh;
+            background-color: white;
+            margin: 0 auto;
+            border-radius: 20px;
+
+          }
+          
+          .app-guide-map{
+            background-image: url("../assets/Map.png");
+            width: 100vw;
+            height: 90vh;
+          }
         `}
       </style>
-
       <Navbar />
+      <div className="app-guide" style={{display: "flex"}}>
+            <div className="app-guide-view">
+              <div className="text-heade-guide">
+                <h1>GUIDE PLAN</h1>
+              </div>
+              <img src="../assets/Map.png"></img>
 
-      
+            </div>
+            <div className="app-guide-map">
+
+            </div>
+      </div>
     </>
   );
 }

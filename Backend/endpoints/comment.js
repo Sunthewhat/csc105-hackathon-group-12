@@ -22,15 +22,30 @@ const getByReview = async (req, res) => {
 };
 
 const create = async (req, res) => {
-    const query = util.promisify(connection.query).bind(connection);
-    const comment = req.body.comment;
-    const userId = req.userId;
-    const reviewId = req.params.Id;
+  const query = util.promisify(connection.query).bind(connection);
+  const comment = req.body.comment;
+  const userId = req.userId;
+  const reviewId = req.params.Id;
 
-    var sql = mysql.format("insert into comments")
-}
+  var sql = mysql.format(
+    "insert into comments (comment, user_id, review_id) values (?,?,?)",
+    [comment, userId, reviewId]
+  );
+
+  try {
+    await query(sql);
+    res.status(201).send({
+      status: "Add comment successfully",
+    });
+  } catch (error) {
+    res.status(500).send({
+      status: "error",
+      error: error,
+    });
+  }
+};
 
 module.exports = {
-    getByReview,
-    create,
+  getByReview,
+  create,
 };

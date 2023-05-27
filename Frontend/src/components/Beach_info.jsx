@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-function Beach_info() {
+function Beach_info(props) {
   const [menuVisible, setMenuVisible] = useState(false);
 
   const handleGuidePlaneClick = () => {
     setMenuVisible(true);
   };
-
+  console.log(props);
   return (
     <>
       <style>
@@ -58,37 +58,60 @@ function Beach_info() {
           justify-content: center;
         }
         .menu-content {
-          background-color: white;
+          background-color: #E89C31;
           padding: 20px;
-          border-radius: 10px;
+          border-radius: 20px;
+          width: 500px;
+        }
+
+        .option-part{
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .option{
+            margin: 20px 20px 20px 20px;
+        }
+
+        .close-btn{
+            background-color: white;
+          width: 80px;
+          height: 40px;
+          color: red;
+          font-size: 14px;
+          font-weight: bold;
+          border: solid 2px red;
+          padding: 10px;
+          border-radius: 100px;
+          cursor: pointer;
+          margin-top: 20px;
+            
+        }
+
+        .option a{
+            text-decoration: none;
+            color: black;
         }
       `}
       </style>
       <div className="app">
-        <div className="box-com" style={{display:"flex", marginRight:"20px"}}>
+        <div
+          className="box-com"
+          style={{ display: "flex", marginRight: "20px" }}>
           <div className="gallery-part">
             <img
               className="img-show"
-              style={{width:"100%", height:"auto"}}
-              src="https://c4.wallpaperflare.com/wallpaper/190/269/279/maya-bay-ko-phi-phi-leh-in-thailand-boat-exotic-desktop-wallpaper-hd-2560%C3%971600-wallpaper-preview.jpg"
+              style={{ width: "100%", height: "auto", maxHeight: "45vh" }}
+              src={props.imgURL}
               alt="Beach"></img>
           </div>
-          <div className="info-part" style={{width:"55%", height:"auto"}}>
+          <div className="info-part" style={{ width: "55%", height: "auto" }}>
             <div className="general-location-info">
               <div className="location-name">
-                <h1>KOH PHI PHI LE</h1>
+                <h1>{props.location}</h1>
               </div>
               <div className="location-des">
-                <p>
-                  Phi Phi Leh is an uninhabited island that lies 1.5 km off the
-                  southernmost tip of Phi Phi Don. The island features stunning
-                  vertical cliffs capped with green foliage that give way to
-                  small sandy beaches and tropical coral seas. Most visitors
-                  find their way around Phi Phi Leh on an organised Phi Phi boat
-                  tour. However, you can rent a longtail boat if you prefer a
-                  customised trip. Find more about some of this beautiful
-                  island’s highlights below.
-                </p>
+                <p>{props.description}</p>
               </div>
             </div>
             <div className="guide-plan-btn-mom">
@@ -108,10 +131,39 @@ function Beach_info() {
       {menuVisible && (
         <div className="menu-overlay">
           <div className="menu-content">
-            {/* Add your menu content here */}
-            <h3>Guide Plane Menu</h3>
-            <p>This is the pop-up menu content.</p>
-            <button onClick={() => setMenuVisible(false)}>Close</button>
+            <div
+              className="text-head-menu"
+              style={{
+                color: "white",
+                fontWeight: "bold",
+                fontSize: "20px",
+                marginTop: "-20px",
+              }}>
+              <h2>Guide Plane</h2>
+            </div>
+            <p style={{marginTop:"-20px", color: "white"}}>The guide plane was created by the many people. Enjoy searching your mathced plane</p>
+            <div
+              className="option-part"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                marginBottom: "10px",
+              }}>
+              <div className="option">
+                <a href="">How to survive in PATTAYA</a>
+              </div>
+              <div className="validate-plane" style={{ marginRight: "20px" }}>
+                <p>MAY 23, 20</p>
+              </div>
+            </div>
+            <div className="close-btn-div" style={{display: "flex", justifyContent: "flex-end"}}>
+              <button
+                className="close-btn"
+                onClick={() => setMenuVisible(false)}>
+                Close
+              </button>
+            </div>
           </div>
         </div>
       )}

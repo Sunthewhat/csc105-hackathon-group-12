@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import dog from "../assets/beach_logo.png";
-
+import SettingsIcon from "@mui/icons-material/Settings";
 function UserPage() {
   return (
     <>
@@ -24,6 +24,7 @@ function UserPage() {
             flex-direction: column;
             justify-content: end;
             padding: 10px;
+            margin-right: 25px;
           }
           .h1{
             margin-top: 0;
@@ -32,6 +33,7 @@ function UserPage() {
           .text-log-in{
             display: flex;
             justify-content: right;
+            margin-left: 150px;
             color: white;
           }
 
@@ -39,7 +41,7 @@ function UserPage() {
             display: flex;
             font-size: 20px !important;
             justify-content: end;
-            margin-top: -60px;
+            margin-top: -50px;
             color: white;
           }
 
@@ -93,24 +95,29 @@ function UserPage() {
 
       <Navbar />
       <div className="all-component">
-      <div className="child">
-        <div className="text">
-          <div className="text-log-in">
-            <h1>"Eternal of prosperity"</h1>
-          </div>
-          <div className="text-en">
-            <h1>GOGOBEACH</h1>
-          </div>
+        <div className="child">
+          <div className="text">
+            <div className="text-log-in">
+              <h1>GOGOBEACH</h1>
+            </div>
+            <div className="text-en">
+              <h1>BABEGON</h1>
+            </div>
           </div>
         </div>
         <div>
-          <div className="profile-box">
+          <div className="profile-box" >
             <img className="profile-image" src={dog} alt="Profile" />
             <div>
-              <a href="" className="user-bio-link">
+              <a href="" className="user-bio-link" style={{ marginLeft: "-10px"}}>
                 Change cover image
               </a>
-            </div>
+              <button style={{padding: "0",backgroundColor: "white",outline: "none", border:"none", position: "absolute", }} onClick={()=> {
+                console.log("อะจ้ะเอ๋ตัวเอง")
+              }}>
+              <SettingsIcon style={{ marginLeft: "10px"}}/>
+              </button>
+            </div> 
             <button className="logout-button">Logout</button>
           </div>
         </div>

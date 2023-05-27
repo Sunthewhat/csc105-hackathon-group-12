@@ -1,7 +1,6 @@
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import HomePage from "./pages/HomePage";
-import BeachProfile from "./pages/BeachProfile";
 import LocationPage from "./pages/LocationPage";
 import GuideTrip from "./pages/GuideTrip";
 import TestPage from "./pages/TestPage";
@@ -17,7 +16,6 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/beachprofile" element={<BeachProfile />} />
         <Route path="/location/:id" element={<LocationPage />} />
         <Route path="/guide" element={<GuideTrip />} />
         <Route path="/reviews" element={<ReviewPage />} />

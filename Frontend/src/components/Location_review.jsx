@@ -1,4 +1,4 @@
-import Reviews_user from "../../components/Reviews_user";
+import Reviews_user from "./Reviews_user";
 function Location_review() {
   return (
     <>
@@ -222,7 +222,9 @@ function Location_review() {
           <div className="overall"></div>
         </div>
         <div className="write-reviews-part">
-          <div className="post-reviews" style={{display:"flex", flexDirection: "column"}}>
+          <div
+            className="post-reviews"
+            style={{ display: "flex", flexDirection: "column" }}>
             <div class="container">
               <div class="wrapper">
                 <section class="post">
@@ -240,16 +242,15 @@ function Location_review() {
                       placeholder="Write your reviews?"
                       spellcheck="false"
                       required></textarea>
-                    <div class="options">
-                      <p>Add Images To Your Review</p>
-                      <ul class="list">
-                        <li>
-                          <img
-                            src="https://cdn-icons-png.flaticon.com/512/2659/2659360.png"
-                            alt="gallery"></img>
-                        </li>
-                      </ul>
-                    </div>
+            
+  <input className="options"
+    type="text"
+    placeholder="Add Link To Your Review"
+    style={{ width: '800px', height: '50px' }}
+    required
+  />
+
+
                     <button>POST YOUR REVIEW</button>
                   </form>
                 </section>
@@ -259,7 +260,6 @@ function Location_review() {
           </div>
           <Reviews_user />
         </div>
-        
       </div>
     </>
   );

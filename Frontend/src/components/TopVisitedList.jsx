@@ -23,7 +23,7 @@ export default function TopVisitList() {
         display: "flex",
         maxWidth: "100vw",
         overflowX: "scroll",
-        gap: "40px",
+        gap: "20px",
       }}>
       {topVisitedList.map((e) => {
         return <Card {...e} />;

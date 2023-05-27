@@ -18,21 +18,15 @@ export default function activityList(props) {
   const [diving, setDiving] = useState(false);
   const [sailing, setSailing] = useState(false);
   const id = props.id;
-  console.log(id);
 
   const fetchActivity = async () => {
     try {
       const res = await api.get(`/location/activity/${id}`);
-      console.log(res.data);
       setBananaboat(res.data.bananaboat == 0 ? false : true);
       setJetski(res.data.jetski == 0 ? false : true);
       setParamotor(res.data.paramotor == 0 ? false : true);
       setDiving(res.data.diving == 0 ? false : true);
       setSailing(res.data.sailing == 0 ? false : true);
-
-      console.log(
-        diving + " " + jetski + " " + paramotor + " " + diving + " " + sailing
-      );
     } catch (error) {
       console.log(error);
     }
@@ -153,14 +147,14 @@ export default function activityList(props) {
           <Card
             sx={{
               width: "fit-content",
-              padding: "20px",
+              padding: "20px 20px 0px 20px",
               borderRadius: "20px",
             }}>
             <div
               style={{
                 borderRadius: "20px",
-                width: "200px",
-                height: "200px",
+                width: "150px",
+                height: "150px",
                 backgroundImage:
                   "url(https://www.sailingworld.com/wp-content/uploads/sites/18/2021/12/SLWWI22_BOTY08.jpg)",
                 backgroundSize: "cover",
@@ -171,7 +165,7 @@ export default function activityList(props) {
                 textAlign: "center",
                 fontWeight: "bold",
               }}>
-              Diving
+              Sailing
             </Typography>
           </Card>
         ) : null}
