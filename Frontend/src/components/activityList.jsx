@@ -49,14 +49,14 @@ export default function activityList(props) {
           <Card
             sx={{
               width: "fit-content",
-              padding: "20px",
+              padding: "20px 20px 0px 20px",
               borderRadius: "20px",
             }}>
             <div
               style={{
                 borderRadius: "20px",
-                width: "200px",
-                height: "200px",
+                width: "150px",
+                height: "150px",
                 backgroundImage:
                   "url(https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/9c/e2/80/caption.jpg?w=1200&h=-1&s=1)",
                 backgroundSize: "cover",
@@ -75,14 +75,14 @@ export default function activityList(props) {
           <Card
             sx={{
               width: "fit-content",
-              padding: "20px",
+              padding: "20px 20px 0px 20px",
               borderRadius: "20px",
             }}>
             <div
               style={{
                 borderRadius: "20px",
-                width: "200px",
-                height: "200px",
+                width: "150px",
+                height: "150px",
                 backgroundImage:
                   "url(https://cdn.getyourguide.com/img/tour/637fbe8a9b1ec.png/146.jpg)",
                 backgroundSize: "cover",
@@ -101,14 +101,14 @@ export default function activityList(props) {
           <Card
             sx={{
               width: "fit-content",
-              padding: "20px",
+              padding: "20px 20px 0px 20px",
               borderRadius: "20px",
             }}>
             <div
               style={{
                 borderRadius: "20px",
-                width: "200px",
-                height: "200px",
+                width: "150px",
+                height: "150px",
                 backgroundImage:
                   "url(https://www.macpara.com/media/2933/muse5-hybrid-01.jpg?anchor=center&mode=crop&width=525&height=525&rnd=132575248980000000)",
                 backgroundSize: "cover",
@@ -127,14 +127,14 @@ export default function activityList(props) {
           <Card
             sx={{
               width: "fit-content",
-              padding: "20px",
+              padding: "20px 20px 0px 20px",
               borderRadius: "20px",
             }}>
             <div
               style={{
                 borderRadius: "20px",
-                width: "200px",
-                height: "200px",
+                width: "150px",
+                height: "150px",
                 backgroundImage:
                   "url(https://a.cdn-hotels.com/gdcs/production164/d604/d8e6ce6d-063f-4667-9b0b-7c792bca591e.jpg?impolicy=fcrop&w=800&h=533&q=medium)",
                 backgroundSize: "cover",

@@ -57,7 +57,6 @@ function LoginPage() {
             display: flex;
             font-size: 20px !important;
             justify-content: center !important;
-            
           }
   
           .text-kr{

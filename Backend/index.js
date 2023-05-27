@@ -11,6 +11,7 @@ const testRoute = require("./endpoints/endpoint_test");
 const Authentication = require("./endpoints/authentication");
 const reviews = require("./endpoints/reviews");
 const location = require("./endpoints/locations");
+const comment = require("./endpoints/comment");
 const auth_middleware = require("./middleWares/auth_middleware");
 
 const connection = mysql.createConnection({
@@ -39,7 +40,7 @@ app.use(
 app.use(bodyParser.json({ type: "application/json" }));
 
 app.use(cookieParser());
-
+//Authentications
 app.get("/test", testRoute.login);
 app.post("/register", Authentication.register);
 app.post("/login", Authentication.login);
@@ -53,6 +54,9 @@ app.get("/location", location.getAll);
 app.get("/location/activity/:id", location.getActivity);
 app.get("/location/popular", location.getPopular);
 app.get("/location/:id", location.get);
+//Comments
+app.get("/comment/:Id", comment.getByReview);
+app.post("/comment/:Id",auth_middleware, comment.create);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
