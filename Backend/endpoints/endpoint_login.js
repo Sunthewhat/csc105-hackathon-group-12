@@ -17,7 +17,7 @@ module.exports = (req, res) => {
         error: err.message,
       });
     }
-    if (rows.length == 0) {
+      if (rows.length == 0) {
       res.status(401).send({
         success: false,
         error: "Username not found",

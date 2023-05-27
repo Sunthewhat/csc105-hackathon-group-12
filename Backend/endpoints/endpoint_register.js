@@ -19,7 +19,7 @@ module.exports = async (req, res) => {
     ]);
     //   console.log(sql);
     const users = await query(sql);
-    console.log(users);
+    // console.log(users);
     if (users.length != 0) {
       return res.status(400).json({
         success: false,
@@ -43,7 +43,10 @@ module.exports = async (req, res) => {
 
     console.log("/register => " + sql);
     await query(sql);
-    res.status(201).send();
+    res.status(201).send({
+      success: true,
+      message: "Registered",
+    });
   } catch (error) {
     console.log(error);
     return res.status(500).json({
