@@ -1,3 +1,12 @@
-module.exports = (req, res) => {
-  res.send("Hello, World!");
+const login = (req, res) => {
+  res.send({
+    message: "asdasdasdasdad",
+  });
+};
+
+const register = () => {};
+
+module.exports = {
+  login,
+  register,
 };
