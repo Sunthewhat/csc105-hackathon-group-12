@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function Beach_info() {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -9,12 +9,14 @@ function Beach_info() {
 
   return (
     <>
-      <style>{`
-        .img-show {
-          width: 700px;
-          height: 500px;
-          border-radius: 20px;
+      <style>
+        {`
+
+        .app{
+            margin: 60px 0px 0px 60px;
         }
+        .img-show {
+          border-radius: 20px;        }
         .location-name {
           margin-top: -40px;
         }
@@ -25,6 +27,7 @@ function Beach_info() {
         }
         .info-part {
           margin-left: 40px;
+          width: 80%;
         }
         .guide-plane-btn {
           background-color: #2A8A92;
@@ -50,7 +53,7 @@ function Beach_info() {
           width: 100%;
           height: 100%;
           background-color: rgba(0, 0, 0, 0.5);
-          display: ${menuVisible ? 'flex' : 'none'};
+          display: ${menuVisible ? "flex" : "none"};
           align-items: center;
           justify-content: center;
         }
@@ -62,28 +65,42 @@ function Beach_info() {
       `}
       </style>
       <div className="app">
-        <div className="gallery-part" style={{ width: "60%", height: "40%" }}>
-          <img className="img-show" src="https://c4.wallpaperflare.com/wallpaper/190/269/279/maya-bay-ko-phi-phi-leh-in-thailand-boat-exotic-desktop-wallpaper-hd-2560%C3%971600-wallpaper-preview.jpg" alt="Beach"></img>
-        </div>
-        <div className="info-part">
-          <div className="general-location-info">
-            <div className="location-name">
-              <h1>KOH PHI PHI LE</h1>
-            </div>
-            <div className="location-des">
-              <p>Phi Phi Leh is an uninhabited island that lies 1.5 km off the southernmost tip of Phi Phi Don. The island features stunning vertical cliffs capped with green foliage that give way to small sandy beaches and tropical coral seas. Most visitors find their way around Phi Phi Leh on an organised Phi Phi boat tour. However, you can rent a longtail boat if you prefer a customised trip. Find more about some of this beautiful island’s highlights below.</p>
-            </div>
+        <div className="box-com" style={{display:"flex", marginRight:"20px"}}>
+          <div className="gallery-part">
+            <img
+              className="img-show"
+              style={{width:"100%", height:"auto"}}
+              src="https://c4.wallpaperflare.com/wallpaper/190/269/279/maya-bay-ko-phi-phi-leh-in-thailand-boat-exotic-desktop-wallpaper-hd-2560%C3%971600-wallpaper-preview.jpg"
+              alt="Beach"></img>
           </div>
-          <div className="guide-plan-btn-mom">
-            <div className="btn-part">
-              <button
-                className="guide-plane-btn"
-                type="submit"
-                value="Submit"
-                onClick={handleGuidePlaneClick}
-              >
-                Guide Plane
-              </button>
+          <div className="info-part" style={{width:"55%", height:"auto"}}>
+            <div className="general-location-info">
+              <div className="location-name">
+                <h1>KOH PHI PHI LE</h1>
+              </div>
+              <div className="location-des">
+                <p>
+                  Phi Phi Leh is an uninhabited island that lies 1.5 km off the
+                  southernmost tip of Phi Phi Don. The island features stunning
+                  vertical cliffs capped with green foliage that give way to
+                  small sandy beaches and tropical coral seas. Most visitors
+                  find their way around Phi Phi Leh on an organised Phi Phi boat
+                  tour. However, you can rent a longtail boat if you prefer a
+                  customised trip. Find more about some of this beautiful
+                  island’s highlights below.
+                </p>
+              </div>
+            </div>
+            <div className="guide-plan-btn-mom">
+              <div className="btn-part">
+                <button
+                  className="guide-plane-btn"
+                  type="submit"
+                  value="Submit"
+                  onClick={handleGuidePlaneClick}>
+                  Guide Plane
+                </button>
+              </div>
             </div>
           </div>
         </div>

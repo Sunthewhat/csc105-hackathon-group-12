@@ -1,16 +1,14 @@
 import * as React from "react";
 import Navbar from "../components/Navbar";
-import TopVisitedBeach from "../components/TopVisitedBeach";
-import TopVisitList from "../components/TopVisitedList";
 
-function HomePage() {
+function GuideTrip() {
   return (
     <>
       <style>
         {`
           html, body {
             background-image: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.5)), url("https://wallpapersmug.com/download/1024x768/a0651f/beautiful-beach-aerial-view-sea.jpg");
-            background-size:100vw 100vh;
+            background-size: 100vw 100vh;
             background-repeat: no-repeat;
           }
 
@@ -54,7 +52,7 @@ function HomePage() {
           }
 
           .wrapper{
-            height: calc(100vh - 200px);
+            height: calc(100vh - 220px);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -69,7 +67,6 @@ function HomePage() {
           .visited {
             scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
-            margin-left: 50px;
           }
 
         `}
@@ -77,36 +74,9 @@ function HomePage() {
 
       <Navbar />
 
-      <div className="wrapper" style={{ height: "100vh" }}>
-        <div className="child">
-          <div className="text">
-            <div className="text-log-in">
-              <h1>Which beach would you like to go?</h1>
-            </div>
-          </div>
-        </div>
-        <div className="button-container">
-          <button>
-            <span>Andaman Bay</span>
-          </button>
-          <button>
-            <span>Gulf of Thailand</span>
-          </button>
-        </div>
-      </div>
-      <div className="wrap" style={{}}>
-        <div
-          className="visited"
-          style={{
-            height: "100vh",
-          }}>
-            <h1>TOP 10 MOST VISITED BEACH</h1>
-          <TopVisitList />
-        </div>
-      </div>
-
+      
     </>
   );
 }
 
-export default HomePage;
+export default GuideTrip;

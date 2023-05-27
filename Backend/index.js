@@ -50,6 +50,7 @@ app.patch("/review/:review_id", reviews.update);
 app.delete("/review/:review_id", reviews.remove);
 //locations
 app.get("/location", location.getAll);
+app.get("/location/activity/:id", location.getActivity);
 app.get("/location/popular", location.getPopular);
 app.get("/location/:id", location.get);
 

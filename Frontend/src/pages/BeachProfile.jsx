@@ -1,8 +1,10 @@
 import Navbar from "../components/Navbar";
 import BeachRecom from "./beachProfile_part/Beach_recom";
 import BeachInfo from "./beachProfile_part/Beach_info";
+import LocationReviews from "./beachProfile_part/Location_review"
 
 export default function BeachProfile() {
+  const location_id = 3;
   return (
     <>
       <style>
@@ -29,9 +31,19 @@ export default function BeachProfile() {
           backgroundRepeat:"no-repeat",
           backgroundSize:"cover",
           backgroundPosition:"center",
-          height:"100vh"
+          height:"50vh"
         }}>
         <BeachInfo />
+      </div>
+      <div
+        style={{
+          backgroundColor:"#F7FBFD",
+          backgroundRepeat:"no-repeat",
+          backgroundSize:"cover",
+          backgroundPosition:"center",
+          height:"100vh"
+        }}>
+        <LocationReviews />
       </div>
     </>
   );

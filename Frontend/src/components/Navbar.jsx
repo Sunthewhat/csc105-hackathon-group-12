@@ -20,6 +20,8 @@ function Navbar() {
         padding: 10px;
         position: sticky;
         top: 0;
+        {/* background-color: rgba(255, 255, 255, 0.2); */}
+        {/* width: 100% */}
       }
       
       .navbar-logo {
@@ -60,12 +62,12 @@ function Navbar() {
         display: none;
       }
 
-    //   @media screen and (max-width: 800px){
-    //     .navbar-menu{
-    //       display: flex;
-    //       flex-direction: column;
-    //       align-items: flex-end;
-    //     }
+      // @media screen and (max-width: 800px){
+      //   .navbar-menu{
+      //     display: flex;
+      //     flex-direction: column;
+      //     align-items: flex-end;
+      //   }
       
     //     .navbar {
     //       display: flex;
@@ -105,7 +107,7 @@ function Navbar() {
               </a>
             </li>
             <li className="navbar-item">
-              <a href="/guide-plane" className="navbar-link">
+              <a href="/guide" className="navbar-link">
                 GUIDE PLAN
               </a>
             </li>

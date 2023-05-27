@@ -1,17 +1,17 @@
+import ActivityList from "../../components/activityList";
+
 function Beach_recom() {
-
-    const location ={
-        slogan: "ISLAND OF PRISTINE BEAUTY",
-    }
-    const location_activities = {
-        bananaboat: 1,
-        jetski: 0,
-        paramotor: 1,
-        diving: 1,
-        sailing: 1,
-    }
-
-
+  const locations_id = 3;
+  const location = {
+    slogan: "ISLAND OF PRISTINE BEAUTY",
+  };
+  const location_activities = {
+    bananaboat: 1,
+    jetski: 0,
+    paramotor: 1,
+    diving: 1,
+    sailing: 1,
+  };
 
   return (
     <>
@@ -34,15 +34,14 @@ function Beach_recom() {
             padding: 10px;
             border-radius: 100px;
             cursor: pointer;
-            margin-bottom: 300px;
+            margin:0px 50px
         }
 
-        .app{
+        .app1{
             display: flex;
-            width: 90%;
+            width: 100vw;
             position: absolute;
             margin-top: 100px;
-            margin-left: 50px;
             height:83vh;
         }
         
@@ -78,41 +77,24 @@ function Beach_recom() {
             display: flex;
             justify-content: flex-end;
         }
-
-        .recommendation{
-            width: 100%;
-        }
         `}
       </style>
-      <div className="app">
-        <div className="review-butn"></div>
+      <div className="app1">
         <div className="recommendation">
           <div className="text-recom">
-            <div className="btn-part">
-                <button
-              className="review-btn"
-              type="submit"
-              value="Submit"
-              >
-              Write Your Review
-            </button>
+            <div
+              className="btn-part"
+              style={{
+                width: "100vw",
+                display: "flex",
+                justifyContent: "flex-end",
+              }}>
+              <button className="review-btn" type="submit" value="Submit">
+                Write Your Review
+              </button>
             </div>
           </div>
-          <div className="activity-recom">
-            <div className="text">
-                <h1>{location.slogan}</h1>
-            </div>
-            <div className="activities_card">
-                <div className="card">
-                    <div className="pic-activities">
-                        <img className="pic-div" src="https://cdn.getyourguide.com/img/tour/637fbe8a9b1ec.png/146.jpg" alt="jetski"></img>
-                    </div>
-                    <div className="text-act">
-                        <h3>Jetski</h3>
-                    </div>
-                </div>
-            </div>
-          </div>
+          <ActivityList id={locations_id} />
         </div>
       </div>
     </>

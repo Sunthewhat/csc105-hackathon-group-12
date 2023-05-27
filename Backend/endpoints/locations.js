@@ -25,6 +25,21 @@ const getPopular = async (req, res) => {
   }
 };
 
+const getActivity = async (req, res) => {
+  const query = util.promisify(connection.query).bind(connection);
+  const id = req.params.id;
+  var sql = mysql.format(
+    "select bananaboat, jetski, paramotor, diving, sailing from locations where id = ?",
+    [id]
+  );
+  try {
+    const data = await query(sql);
+    res.status(200).send(data[0]);
+  } catch (error) {
+    res.status(500).send({ error });
+  }
+};
+
 const get = async (req, res) => {
   const query = util.promisify(connection.query).bind(connection);
   const id = req.params.id;
@@ -47,4 +62,5 @@ module.exports = {
   getAll,
   get,
   getPopular,
+  getActivity,
 };

@@ -5,8 +5,8 @@ function TopVisitedBeach(props) {
         {`
         .card{
             background-color: white;
-            width: 350px;
-            height: 230px;
+            width: 300px;
+            height: 380px;
             border-radius: 20px;
             box-shadow: 1px 1px 20px 0px black; 
         }
@@ -16,8 +16,8 @@ function TopVisitedBeach(props) {
             justify-content: center;
         }
         .pic-div{
-            width: 160px;
-            height: 160px;
+            width: 260px;
+            height: 260px;
             border-radius: 10px;
             margin-top: 15px;
         }
@@ -41,16 +41,16 @@ function TopVisitedBeach(props) {
         }
       `}
       </style>
-    <div className="activities_card">
+      <div className="activities_card">
         <div className="card">
-            <div className="pic-activities">
-                <img className="pic-div" src={props.cover_url} alt="jetski"></img>
-            </div>
-                <div className="text-act">
-                    <h3>{props.name}</h3>
-                </div>
+          <div className="pic-activities">
+            <img className="pic-div" src={props.cover_url} alt="jetski"></img>
+          </div>
+          <div className="text-act">
+            <h3>{props.name}</h3>
+          </div>
         </div>
-    </div>
+      </div>
     </>
   );
 }

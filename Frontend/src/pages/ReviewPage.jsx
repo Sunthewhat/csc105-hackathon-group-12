@@ -1,9 +1,7 @@
 import * as React from "react";
 import Navbar from "../components/Navbar";
-import TopVisitedBeach from "../components/TopVisitedBeach";
-import TopVisitList from "../components/TopVisitedList";
 
-function HomePage() {
+function ReviewPage() {
   return (
     <>
       <style>
@@ -69,44 +67,14 @@ function HomePage() {
           .visited {
             scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
-            margin-left: 50px;
           }
 
         `}
       </style>
 
       <Navbar />
-
-      <div className="wrapper" style={{ height: "100vh" }}>
-        <div className="child">
-          <div className="text">
-            <div className="text-log-in">
-              <h1>Which beach would you like to go?</h1>
-            </div>
-          </div>
-        </div>
-        <div className="button-container">
-          <button>
-            <span>Andaman Bay</span>
-          </button>
-          <button>
-            <span>Gulf of Thailand</span>
-          </button>
-        </div>
-      </div>
-      <div className="wrap" style={{}}>
-        <div
-          className="visited"
-          style={{
-            height: "100vh",
-          }}>
-            <h1>TOP 10 MOST VISITED BEACH</h1>
-          <TopVisitList />
-        </div>
-      </div>
-
     </>
   );
 }
 
-export default HomePage;
+export default ReviewPage;
