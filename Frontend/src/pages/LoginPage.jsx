@@ -1,10 +1,25 @@
 import * as React from "react";
 import { useState } from "react";
-import Navbar from "./Navbar";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
+import api from "../axios";
 
-function Login() {
+function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const login = async () => {
+    try {
+      const res = await api.post("/login", { username, password });
+      // console.log(res.data);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -95,16 +110,26 @@ function Login() {
           }
         
           .login-form{
-
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            width: 100% !important;
+            border-radius: 3%;
+            box-shadow: 1px 1px 20px 0px #d1d1d1; 
+            align-items: center;
+            margin-top: 80px;
+            margin-left: 0px !important;
           }
   
         }
 
-        //more than 600px
-
-        body{
-          background-color: #F3F6F4;
-        }
+        html, body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.01),rgba(0, 0, 0, 0.5)), url("https://wallpapersmug.com/download/1024x768/a0651f/beautiful-beach-aerial-view-sea.jpg");
+            /* background-size: cover; */
+            background-size: 100vw 100vh;
+            background-repeat: no-repeat;
+            height: fit-content;
+          }
 
         .all-component {
           display: flex;
@@ -118,9 +143,9 @@ function Login() {
           margin: 20px;
         }
       
-        .input-fill input{
+        #textfield{
           width: 300px;
-          height: 28px;
+          height: 20px;
           border-radius: 5px;
           border: 1.5px solid #959595;
         }
@@ -128,24 +153,49 @@ function Login() {
         .label{
           margin-bottom: 10px;
           /* margin-left: 20px; */
-          color:#3C8350;
+          color: #096584;
+          font-weight: bold;
+        }
+      
+      
+        .login-form{
+          display: flex;
+          flex-direction: column;
+          background-color: white;
+          width: 400px;
+          height: 400px;
+          border-radius: 3%;
+          box-shadow: 1px 1px 20px 0px #d1d1d1; 
+          margin-left: 20px;
+          align-items: center;
+        }
+      
+        .child{
+          display: inline-block;
+          vertical-align: middle;  
         }
       
         .text{
-          color: #3C8350;
+          color: white;
           display: flex;
           flex-direction: column;
         }
       
         .text-en{
-          font-size: 12px;
           display: flex;
-          justify-content: center
+          font-size: 28px;
+          margin-top: -70px;
+          justify-content: right;
         }
-
+      
+        .text-log-in{
+          display: flex;
+          justify-content: right;
+          margin-left: 170px;
+        }
       
         .login-btn{
-          background-color: #3C8350;
+          background-color: #096584;
           width: 100px;
           color: white;
           font-weight: bold;
@@ -157,39 +207,24 @@ function Login() {
           margin-top: 25px;
           align-self: center;
         }
-
-        .child-x {
-            background-color: white;
-            width: 50vw;
-            height: 50vh;
-            border-radius: 30px;
-            box-shadow: 1px 1px 20px 0px #d1d1d1; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .child {
-            display: flex;
-            flex-direction: column;
-        }
-        \
-        .login-form {
-            
-        }
       `}
       </style>
       <div className="color-nav">
         <Navbar />
       </div>
       <div className="all-component">
+        <div className="child">
+          <div className="text">
+            <div className="text-log-in">
+              <h1>"Eternal of prosperity"</h1>
+            </div>
+            <div className="text-en">
+              <h1>GOGOBEACH</h1>
+            </div>
+          </div>
+        </div>
         <div className="child-x">
           <div className="child">
-            <div className="text">
-              <div className="text-en">
-                <h1>LOG IN</h1>
-              </div>
-            </div>
             <div className="login-form">
               <form className="form" onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -197,15 +232,20 @@ function Login() {
                     <label htmlFor="Username">Username</label>
                   </div>
                   <div className="input-fill">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="Username"
-                      name="username"
-                      placeholder=""
-                      value={username}
-                      onChange={handleUsernameChange}
+                    <TextField
                       required
+                      margin="dense"
+                      id="textfield"
+                      size="small"
+                      name="username"
+                      label=""
+                      variant="outlined"
+                      value={username}
+                      onChange={(e) => {
+                        setUsername(e.target.value);
+                      }}
+                      // error={!!error.title}
+                      // helperText={error.title}
                     />
                   </div>
                 </div>
@@ -214,65 +254,69 @@ function Login() {
                     <label htmlFor="Password">Password</label>
                   </div>
                   <div className="input-fill">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="Password"
-                      name="password"
-                      placeholder=""
-                      value={password}
-                      onChange={handlePasswordChange}
+                    <TextField
                       required
+                      size="small"
+                      margin="dense"
+                      id="textfield"
+                      name="password"
+                      label=""
+                      variant="outlined"
+                      value={password}
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
+                      // error={!!error.title}
+                      // helperText={error.title}
                     />
                   </div>
-                  <button className="login-btn" type="submit" value="Submit">
+                  <div className="forget-password" style={{marginTop: "20px"}}>
+                    <a
+                      href="/forgot-password"
+                      style={{
+                        textDecoration: "none",
+                        color: "black",
+                        marginLeft: "225px",
+                        fontSize: "12px",
+                      }}>
+                      Forgot Password?
+                    </a>
+                  </div>
+                  <button
+                    className="login-btn"
+                    type="submit"
+                    value="Submit"
+                    onClick={login()}>
                     Log In
                   </button>
                 </div>
               </form>
-              <div className="forget-password">
-                <a
-                  href="/forgot-password"
-                  style={{
-                    textDecoration: "none",
-                    color: "black",
-                    marginTop: "10px",
-                    fontSize: "12px",
-                  }}
-                >
-                  Forgot Password?
-                </a>
-              </div>
             </div>
           </div>
-          {/* <div className="optional">
+          <div className="optional">
             <a
               href="/SignUp"
               style={{
                 textDecoration: "none",
-                color: "black",
-                fontSize: "12px",
+                color: "white",
+                fontSize: "16px",
                 display: "flex",
                 justifyContent: "center",
                 marginTop: "20px",
-              }}
-            >
+              }}>
               Haven't an account?{" "}
               <span
                 className="log-in-word"
-                style={{ color: "#3C8350", fontWeight: "bold" }}
-              >
+                style={{ color: "white", fontWeight: "bold" }}>
                 {" "}
                 &nbsp;SIGN IN
               </span>
             </a>
-          </div> */}
-          
+          </div>
         </div>
-
       </div>
     </>
   );
 }
 
-export default Login;
+export default LoginPage;

@@ -1,12 +1,14 @@
 import React from "react";
 // import MenuIcon from "./MenuIcon";
-import logo from "../assets/react.svg"
+import beach_logo from "../assets/beach_logo.png";
 import { Routes, Route, NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
     <>
-      <style> {`
+      <style>
+        {" "}
+        {`
       @font-face {
         font-family: 'My Custom Font';
         src: url('../font/JosefinSans-VariableFont_wght.ttf') format('woff2')
@@ -16,6 +18,8 @@ function Navbar() {
         display: flex;
         align-items: center;
         padding: 10px;
+        position: sticky;
+        top: 0;
       }
       
       .navbar-logo {
@@ -44,7 +48,7 @@ function Navbar() {
       }
       
       .navbar-link {
-        color: black;
+        color: white;
         text-decoration: none;
       }
       
@@ -85,7 +89,7 @@ function Navbar() {
       <nav className="navbar">
         <div className="navbar-logo">
           <div className="pic" style={{ marginRight: "0" }}>
-            <img className="logo7" src={logo} alt="Logo" />
+            <img className="logo7" src={beach_logo} alt="Logo" />
           </div>
         </div>
         <div className="mem-nav" style={{ justifyItems: "start" }}>
