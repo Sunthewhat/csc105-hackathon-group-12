@@ -6,6 +6,8 @@ const cookieParser = require("cookie-parser");
 const port = 4000;
 const dotenv = require("dotenv");
 const cors = require("cors");
+const testRoute = require("./endpoints/endpoint_test");
+const Authentication = require("./endpoints/authentication");
 
 const connection = mysql.createConnection({
   host: "db.cshack.site",
@@ -34,9 +36,13 @@ app.use(bodyParser.json({ type: "application/json" }));
 
 app.use(cookieParser());
 
-app.get("/test", require("./endpoints/endpoint_test"));
-app.post("/register", require("./endpoints/endpoint_register"));
-app.post("/login", require("./endpoints/endpoint_login"));
+app.get("/test", testRoute.login);
+app.post("/register", Authentication.register);
+app.post("/login", Authentication.login);
+app.post(
+  "/create/review/:location_id/:user_id",
+  require("./endpoints/endpoint_createReview")
+);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
