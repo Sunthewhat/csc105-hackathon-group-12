@@ -1,22 +1,30 @@
 import * as React from "react";
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
+import api from "../axios";
 import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
+  const [errorPassword, setErrorPassword] = useState();
 
-  const handleSubmit = (event) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Form submitted");
-    console.log("Email:", email);
-    console.log("Username:", username);
-    console.log("Password:", password);
-    console.log("Confirm Password:", ConfirmPassword);
+    setErrorPassword();
+    if (password !== ConfirmPassword) {
+      setErrorPassword("Password does not match!");
+    }
+    try {
+      await api.post("/register", { username, email, password });
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   function handleEmailChange(e) {
@@ -316,6 +324,8 @@ function SignUp() {
                   />
                 </div>
               </div>
+              {errorPassword ? <div>{errorPassword}</div> : null}
+
               <div className="button-signUp">
                 <button type="submit" className="signUp-btn" value="Submit">
                   Sign Up
@@ -339,13 +349,11 @@ function SignUp() {
                 display: "flex",
                 justifyContent: "center",
                 marginTop: "20px",
-              }}
-            >
+              }}>
               Have an account?{" "}
               <span
                 className="log-in-word"
-                style={{ color: "white", fontWeight: "bold" }}
-              >
+                style={{ color: "white", fontWeight: "bold" }}>
                 {" "}
                 &nbsp;LOG IN
               </span>

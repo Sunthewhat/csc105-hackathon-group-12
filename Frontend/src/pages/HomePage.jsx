@@ -1,5 +1,7 @@
 import * as React from "react";
 import Navbar from "../components/Navbar";
+import TopVisitedBeach from "../components/TopVisitedBeach";
+import TopVisitList from "../components/TopVisitedList";
 
 function HomePage() {
   return (
@@ -8,9 +10,8 @@ function HomePage() {
         {`
           html, body {
             background-image: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.5)), url("https://wallpapersmug.com/download/1024x768/a0651f/beautiful-beach-aerial-view-sea.jpg");
-            background-size: cover;
+            background-size: 100vw 100vh;
             background-repeat: no-repeat;
-            height: 100vh;
           }
 
           /* Add your custom CSS styles for the homepage here */
@@ -58,13 +59,24 @@ function HomePage() {
             flex-direction: column;
             justify-content: center;
           }
+          .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+            grid-gap: 10px;
+            background-color: #2196F3;
+            padding: 10px;
+          }
+          .visited {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+          }
 
         `}
       </style>
-      <div className="color-nav">
+      <div className="color-nav" style={{ position: "fixed" }}>
         <Navbar />
       </div>
-      <div className="wrapper">
+      <div className="wrapper" style={{ height: "100vh" }}>
         <div className="child">
           <div className="text">
             <div className="text-log-in">
@@ -80,7 +92,15 @@ function HomePage() {
             <span>Gulf of Thailand</span>
           </button>
         </div>
-
+      </div>
+      <div className="wrap" style={{}}>
+        <div
+          className="visited"
+          style={{
+            height: "100vh",
+          }}>
+          <TopVisitList />
+        </div>
       </div>
     </>
   );

@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useState } from "react";
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
@@ -11,30 +10,15 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const login = async () => {
+  const login = async (e) => {
+    e.preventDefault();
     try {
-      const res = await api.post("/login", { username, password });
-      // console.log(res.data);
+      await api.post("/login", { username, password });
       navigate("/");
     } catch (error) {
       console.log(error);
     }
   };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Form submitted");
-    console.log("Username:", username);
-    console.log("Password:", password);
-  };
-
-  function handleUsernameChange(e) {
-    setUsername(e.target.value);
-  }
-
-  function handlePasswordChange(e) {
-    setPassword(e.target.value);
-  }
 
   return (
     <>
@@ -226,7 +210,7 @@ function LoginPage() {
         <div className="child-x">
           <div className="child">
             <div className="login-form">
-              <form className="form" onSubmit={handleSubmit}>
+              <form className="form" onSubmit={login}>
                 <div className="form-group">
                   <div className="label" style={{ marginTop: "30px" }}>
                     <label htmlFor="Username">Username</label>
@@ -270,7 +254,9 @@ function LoginPage() {
                       // helperText={error.title}
                     />
                   </div>
-                  <div className="forget-password" style={{marginTop: "20px"}}>
+                  <div
+                    className="forget-password"
+                    style={{ marginTop: "20px" }}>
                     <a
                       href="/forgot-password"
                       style={{
@@ -286,7 +272,7 @@ function LoginPage() {
                     className="login-btn"
                     type="submit"
                     value="Submit"
-                    onClick={login()}>
+                    onClick={login}>
                     Log In
                   </button>
                 </div>

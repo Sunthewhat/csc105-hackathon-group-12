@@ -17,11 +17,11 @@ function Beach_recom() {
     <>
       <style>
         {`
-        html, body {
+        {/* html, body {
             background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url("https://img.theculturetrip.com/1440x807/smart/wp-content/uploads/2018/02/shutterstock_232532110.jpg");
             background-repeat: no-repeat;
             background-size: 1920px 100vh;
-          }
+          } */}
 
           .review-btn{
             background-color: #E89C31;
@@ -34,22 +34,22 @@ function Beach_recom() {
             padding: 10px;
             border-radius: 100px;
             cursor: pointer;
-            margin-bottom: 230px;
+            margin-bottom: 300px;
         }
 
         .app{
             display: flex;
             width: 90%;
             position: absolute;
-            margin-top: 50px;
+            margin-top: 100px;
             margin-left: 50px;
-
+            height:83vh;
         }
         
         .card{
             background-color: white;
             width: 190px;
-            height: 230px;
+            height: 250px;
             border-radius: 20px;
             box-shadow: 1px 1px 20px 0px black; 
         }
