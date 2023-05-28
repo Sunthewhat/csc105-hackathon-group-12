@@ -1,13 +1,3 @@
-/*
-<div className="card">
-                    <div className="pic-activities">
-                        <img className="pic-div" src="https://cdn.getyourguide.com/img/tour/637fbe8a9b1ec.png/146.jpg" alt="jetski"></img>
-                    </div>
-                    <div className="text-act">
-                        <h3>Jetski</h3>
-                    </div>
-                </div>
-*/
 import { useEffect, useState } from "react";
 import api from "../axios";
 import { Box, Card, Stack, Typography } from "@mui/material";
@@ -52,7 +42,7 @@ export default function activityList(props) {
                 width: "150px",
                 height: "150px",
                 backgroundImage:
-                  "url(https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/9c/e2/80/caption.jpg?w=1200&h=-1&s=1)",
+                  "url(https://media.tenor.com/0kklsaJYu5AAAAAd/banana-boat.gif)",
                 backgroundSize: "cover",
               }}></div>
             <Typography
@@ -78,7 +68,7 @@ export default function activityList(props) {
                 width: "150px",
                 height: "150px",
                 backgroundImage:
-                  "url(https://cdn.getyourguide.com/img/tour/637fbe8a9b1ec.png/146.jpg)",
+                  "url(https://media.tenor.com/0kklsaJYu5AAAAAd/banana-boat.gif)",
                 backgroundSize: "cover",
               }}></div>
             <Typography
