@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import TextField from "@mui/material/TextField";
+import { FormControl, TextField, Button, Typography } from "@mui/material";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import api from "../axios";
@@ -199,7 +199,7 @@ function LoginPage() {
         <div className="child">
           <div className="text">
             <div className="text-log-in">
-              <h1>"Eternal of prosperity"</h1>
+              <h1>"Explore the Best Beach Destinations"</h1>
             </div>
             <div className="text-en">
               <h1>GOGOBEACH</h1>

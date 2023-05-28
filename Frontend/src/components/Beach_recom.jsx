@@ -1,7 +1,13 @@
+import React from "react";
 import { Typography } from "@mui/material";
 import ActivityList from "./activityList";
 
 function Beach_recom(props) {
+
+  const handleButtonClick = () => {
+    props.scrollToSection.current.scrollIntoView({ behavior: "smooth" });
+  };
+
 
   return (
     <>
@@ -79,7 +85,7 @@ function Beach_recom(props) {
                 display: "flex",
                 justifyContent: "flex-end",
               }}>
-              <button className="review-btn" type="submit" value="Submit">
+              <button className="review-btn" type="submit" value="Submit" onClick={handleButtonClick}>
                 Write Your Review
               </button>
             </div>

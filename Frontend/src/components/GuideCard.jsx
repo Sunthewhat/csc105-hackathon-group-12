@@ -108,7 +108,7 @@ function GuideCard() {
       </style>
       <div
         className="card-deatail"
-        style={{ display: "flex", justifyContent: "center" }}>
+        style={{ display: "flex", justifyContent: "center", marginBottom:"30px" }}>
         <div class="card-list">
           <article class="card">
             <div class="card-header" style={{ display: "flex" }}>
@@ -153,7 +153,68 @@ function GuideCard() {
                   <path d="M16 2v4" />
                   <path d="M2 10h20" />
                 </svg>
-                Jul 26, 2019
+                Jun 24, 2003
+              </div>
+              <div className="edit-card">
+                <button
+                  className="edit-btn"
+                  type="submit"
+                  value="Submit">
+                  Edit
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div
+        className="card-deatail"
+        style={{ display: "flex", justifyContent: "center"}}>
+        <div class="card-list">
+          <article class="card">
+            <div class="card-header" style={{ display: "flex" }}>
+              <h1 style={{ color: "#E89C31" }}>Go to time!</h1>
+              <div
+                className="card-date"
+                style={{
+                  height: "70px",
+                  width: "70px",
+                  backgroundColor: "#E3E3E3",
+                  borderRadius: "100px",
+                  textAlign: "center",
+                }}>
+                <h1 style={{ fontSize: "12px" }}>Day :</h1>
+                <h1 style={{ marginTop: "-10px" }}>2</h1>
+              </div>
+            </div>
+
+            <div class="card-detail">
+              <p>
+                To get to Patagonia from outside of Chile and Argentina, you
+                need to fly into either Santiago or Buenos Aires and then take a
+                connecting flight down to Patagonia.
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="card-meta card-meta--date">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  display="block"
+                  id="Calendar">
+                  <rect x="2" y="4" width="20" height="18" rx="4" />
+                  <path d="M8 2v4" />
+                  <path d="M16 2v4" />
+                  <path d="M2 10h20" />
+                </svg>
+                Jun 25, 2003
               </div>
               <div className="edit-card">
                 <button

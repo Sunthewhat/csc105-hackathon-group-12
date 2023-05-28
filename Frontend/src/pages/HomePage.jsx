@@ -2,6 +2,7 @@ import * as React from "react";
 import Navbar from "../components/Navbar";
 import TopVisitList from "../components/TopVisitedList";
 import { useNavigate } from "react-router-dom";
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -39,6 +40,7 @@ function HomePage() {
             display: flex;
             justify-content: center;
             margin-top: 20px;
+            margin-bottom: 370px;
           }
 
           .button-container button {
@@ -77,6 +79,23 @@ function HomePage() {
             margin-left: 50px;
           }
 
+          .arrow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 20px;
+          }
+
+          .scroll-text {
+            color: white;
+            font-size: 14px;
+            margin-bottom: 10px;
+          }
+
         `}
       </style>
 
@@ -97,6 +116,10 @@ function HomePage() {
           <button onClick={(e)=>handleClick(1)}>
             <span>Gulf of Thailand</span>
           </button>
+        </div>
+        <div className="arrow-container">
+          <ArrowDownwardIcon style={{ color: 'white', fontSize: 48 }} />
+          <p className="scroll-text">Scroll for more</p>
         </div>
       </div>
       <div className="wrap" style={{}}>

@@ -76,6 +76,7 @@ function GuideTripPage() {
             background-color: white;
             margin: 0 auto;
             border-radius: 20px;
+            
 
           }
           

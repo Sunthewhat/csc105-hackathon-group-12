@@ -242,7 +242,7 @@ function SignUp() {
         <div className="child">
           <div className="text">
             <div className="text-kr">
-              <h1>"Eternal Of Prosperity"</h1>
+              <h1>"Explore the Best Beach Destinations"</h1>
             </div>
             <div className="text-en">
               <h1>GOGOBEACH</h1>

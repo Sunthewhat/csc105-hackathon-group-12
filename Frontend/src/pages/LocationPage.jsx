@@ -4,7 +4,7 @@ import BeachInfo from "../components/Beach_info";
 import LocationReviews from "../components/Location_review";
 import api from "../axios";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function LocationPage() {
   const { id } = useParams();
@@ -33,9 +33,11 @@ export default function LocationPage() {
     fetchProfileData();
   }, []);
 
+  const ggRef = useRef(null);
+
   return (
     <>
-      <div style={{ position: "absolute" }}>
+      <div style={{ position: "fixed" }}>
         <Navbar />
       </div>
       <div
@@ -59,22 +61,25 @@ export default function LocationPage() {
         <BeachInfo
           imgURL={locationData?.image_url}
           location={locationData?.location}
+          location_id= {locationData?.id}
           description={locationData?.description}
         />
       </div>
       <div
         style={{
-          backgroundColor: "#F7FBFD",
+          backgroundColor: "#F8F9F9",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: "100vh",
+          height: "auto",
         }}>
-        <LocationReviews
-          location={locationData?.location}
-          username={profile?.username}
-          location_id={id}
-        />
+        <div ref={ggRef} className="gg">
+          <LocationReviews
+            location={locationData?.location}
+            username={profile?.username}
+            location_id={id}
+          />
+        </div>
       </div>
     </>
   );

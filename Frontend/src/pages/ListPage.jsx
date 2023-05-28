@@ -26,8 +26,8 @@ export default function ListPage() {
     <Box
       sx={{
         height: "100vh",
-        backgroundImage: `url(https://wallpapersmug.com/download/1024x768/a0651f/beautiful-beach-aerial-view-sea.jpg)`,
-              backgroundSize: "100vw 100vh",
+        backgroundImage:  `linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.5)), url(https://wallpapersmug.com/download/1024x768/a0651f/beautiful-beach-aerial-view-sea.jpg)`,
+        backgroundSize: "100vw 100vh",
         backgroundAttachment: "fixed",
       }}>
       <Navbar />

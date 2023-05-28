@@ -17,7 +17,7 @@ function Location_review(props) {
   const fetchReview = async () => {
     try {
       const data = await api.get(`/review/${props.location_id}`);
-        setReview(data.data.data);
+      setReview(data.data.data);
     } catch (error) {
       throw error;
     }

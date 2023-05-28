@@ -2,7 +2,14 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import dog from "../assets/beach_logo.png";
 import SettingsIcon from "@mui/icons-material/Settings";
+import api from "../axios";
+import { useNavigate } from "react-router-dom";
 function UserPage() {
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    await api.post("/logout");
+    navigate("/login");
+  };
   return (
     <>
       <style>
@@ -106,19 +113,32 @@ function UserPage() {
           </div>
         </div>
         <div>
-          <div className="profile-box" >
+          <div className="profile-box">
             <img className="profile-image" src={dog} alt="Profile" />
             <div>
-              <a href="" className="user-bio-link" style={{ marginLeft: "-10px"}}>
+              <a
+                href=""
+                className="user-bio-link"
+                style={{ marginLeft: "-10px" }}>
                 Change cover image
               </a>
-              <button style={{padding: "0",backgroundColor: "white",outline: "none", border:"none", position: "absolute", }} onClick={()=> {
-                console.log("อะจ้ะเอ๋ตัวเอง")
-              }}>
-              <SettingsIcon style={{ marginLeft: "10px"}}/>
+              <button
+                style={{
+                  padding: "0",
+                  backgroundColor: "white",
+                  outline: "none",
+                  border: "none",
+                  position: "absolute",
+                }}
+                onClick={() => {
+                  console.log("อะจ้ะเอ๋ตัวเอง");
+                }}>
+                <SettingsIcon style={{ marginLeft: "10px" }} />
               </button>
-            </div> 
-            <button className="logout-button">Logout</button>
+            </div>
+            <button className="logout-button" onClick={handleLogout}>
+              Logout
+            </button>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-function GuideCard_new() {
+function GuideCard_new(props) {
   return (
     <>
       <style>

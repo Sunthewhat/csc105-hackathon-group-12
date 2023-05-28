@@ -146,7 +146,7 @@ export default function activityList(props) {
                 width: "150px",
                 height: "150px",
                 backgroundImage:
-                  "url(https://www.sailingworld.com/wp-content/uploads/sites/18/2021/12/SLWWI22_BOTY08.jpg)",
+                  "url(https://media.tenor.com/zYavILRjz4kAAAAC/ok-scuba-diving.gif)",
                 backgroundSize: "cover",
               }}></div>
             <Typography

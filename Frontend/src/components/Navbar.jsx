@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import MenuIcon from "./MenuIcon";
 import beach_logo from "../assets/beach_logo.png";
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route, NavLink, useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 
 function Navbar() {
   const [color, setColor] = useState("white");
   const [bgcolor, setBgcolor] = useState(false);
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/user");
+  };
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 800) {
@@ -48,8 +53,8 @@ function Navbar() {
         position: sticky;
         top: 0;
         height: 100px;
+        width: 100vw;
         {/* background-color: rgba(255, 255, 255, 0.2); */}
-        {/* width: 100% */}
       }
       
       .navbar-logo {
@@ -85,16 +90,23 @@ function Navbar() {
         color: #0ecd4d;
       }
 
+      .icon-menu{
+        background-color: 
+      }
+
     
       `}
       </style>
-      <nav className="navbar" style={{backgroundColor: bgcolor == true ? "white" : "" }}>
+      <nav
+        className="navbar"
+        style={{ backgroundColor: bgcolor == true ? "white" : "" }}>
         <div className="navbar-logo">
           <div className="pic" style={{ marginRight: "0" }}>
             <img className="logo7" src={beach_logo} alt="Logo" />
           </div>
         </div>
         <div className="mem-nav" style={{ justifyItems: "start" }}>
+          
           <ul className="navbar-menu">
             <li className="navbar-item">
               <a href="/" className="navbar-link" style={{ color: color }}>
@@ -109,15 +121,17 @@ function Navbar() {
                 POPULAR BEACHES
               </a>
             </li> */}
-            <li className="navbar-item">
+            {/* <li className="navbar-item">
               <a href="/guide" className="navbar-link" style={{ color: color }}>
                 GUIDE PLAN
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="icon-menu">
-          <MenuIcon />
+          <Button onClick={handleClick}>
+            <MenuIcon />
+          </Button>
         </div>
       </nav>
     </>

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Beach_info(props) {
   const [menuVisible, setMenuVisible] = useState(false);
-
+  const navigate = useNavigate();
   const handleGuidePlaneClick = () => {
     setMenuVisible(true);
   };
@@ -88,6 +89,22 @@ function Beach_info(props) {
             
         }
 
+        .cwo-btn{
+          background-color: green;
+          width: 180px;
+          height: 40px;
+          color: white;
+          font-size: 14px;
+          font-weight: bold;
+          border: solid 2px green;
+          padding: 10px;
+          border-radius: 100px;
+          cursor: pointer;
+          margin-top: 20px;
+          margin-left: 15px;
+            
+        }
+
         .option a{
             text-decoration: none;
             color: black;
@@ -114,17 +131,6 @@ function Beach_info(props) {
                 <p>{props.description}</p>
               </div>
             </div>
-            <div className="guide-plan-btn-mom">
-              <div className="btn-part">
-                <button
-                  className="guide-plane-btn"
-                  type="submit"
-                  value="Submit"
-                  onClick={handleGuidePlaneClick}>
-                  Guide Plane
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -141,7 +147,10 @@ function Beach_info(props) {
               }}>
               <h2>Guide Plane</h2>
             </div>
-            <p style={{marginTop:"-20px", color: "white"}}>The guide plane was created by the many people. Enjoy searching your mathced plane</p>
+            <p style={{ marginTop: "-20px", color: "white" }}>
+              The guide plane was created by the many people. Enjoy searching
+              your mathced plane
+            </p>
             <div
               className="option-part"
               style={{
@@ -151,18 +160,27 @@ function Beach_info(props) {
                 marginBottom: "10px",
               }}>
               <div className="option">
-                <a href="">How to survive in PATTAYA</a>
+                <a href="/guide">How to survive in PATTAYA</a>
               </div>
               <div className="validate-plane" style={{ marginRight: "20px" }}>
                 <p>MAY 23, 20</p>
               </div>
             </div>
-            <div className="close-btn-div" style={{display: "flex", justifyContent: "flex-end"}}>
+            <div
+              className="close-btn-div"
+              style={{ display: "flex", justifyContent: "flex-end" }}>
               <button
                 className="close-btn"
                 onClick={() => setMenuVisible(false)}>
                 Close
               </button>
+                <button
+                  className="cwo-btn"
+                  onClick={() => {
+                    navigate(`/guide/new/?id=${props.location_id}&location_name=${props.location}`);
+                  }}>
+                  Create your own
+                </button>
             </div>
           </div>
         </div>
