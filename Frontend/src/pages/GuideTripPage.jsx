@@ -1,7 +1,8 @@
 import * as React from "react";
 import Navbar from "../components/Navbar";
+import GuideCard from "../components/GuideCard";
 
-function GuideTrip() {
+function GuideTripPage() {
   return (
     <>
       <style>
@@ -79,27 +80,29 @@ function GuideTrip() {
           }
           
           .app-guide-map{
-            background-image: url("../assets/Map.png");
+            background-image: url("../../src/assets/map.png") ;
             width: 100vw;
             height: 90vh;
+            background-repeat: no-repeat;
+            background-size: cover;
           }
         `}
       </style>
       <Navbar />
-      <div className="app-guide" style={{display: "flex"}}>
-            <div className="app-guide-view">
-              <div className="text-heade-guide">
-                <h1>GUIDE PLAN</h1>
-              </div>
-              <img src="../assets/Map.png"></img>
-
-            </div>
-            <div className="app-guide-map">
-
-            </div>
+      <div className="app-guide" style={{ display: "flex" }}>
+        <div className="app-guide-view">
+          <div className="text-heade-guide" style={{ height:"50px", marginLeft: "30px", color:"#096584" }}>
+            <h1>GUIDE PLAN</h1>
+          </div>
+          <div className="card-comp" style={{display:"flex", flexDirection:"column", marginTop:"50px"}}>
+            <GuideCard />
+          </div>
+        </div>
+        <div className="app-guide-map">
+        </div>
       </div>
     </>
   );
 }
 
-export default GuideTrip;
+export default GuideTripPage;

@@ -1,5 +1,44 @@
+import { useEffect, useState } from "react";
 import Reviews_user from "./Reviews_user";
-function Location_review() {
+import api from "../axios";
+import { Stack } from "@mui/material";
+function Location_review(props) {
+  const [header, setHeader] = useState("");
+  const [text, setText] = useState("");
+  const [review, setReview] = useState([]);
+
+  const handleHeaderChange = (e) => {
+    setHeader(e.target.value);
+  };
+
+  const handleTextChange = (e) => {
+    setText(e.target.value);
+  };
+  const fetchReview = async () => {
+    try {
+      const data = await api.get(`/review/${props.location_id}`);
+        setReview(data.data.data);
+    } catch (error) {
+      throw error;
+    }
+  };
+  useEffect(() => {
+    fetchReview();
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await api.post(`/review/${props.location_id}`, { header, text });
+      setHeader("");
+      setText("");
+      fetchReview();
+    } catch (error) {
+      console.log("Post review Error: ");
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <style>
@@ -216,7 +255,7 @@ function Location_review() {
               <h1>REVIEWS</h1>
             </div>
             <div className="location-name-head">
-              <h1>KOH PHI PHI LE</h1>
+              <h1>{props.location}</h1>
             </div>
           </div>
           <div className="overall"></div>
@@ -235,30 +274,38 @@ function Location_review() {
                         src="https://www.svgrepo.com/show/437116/person-circle.svg"
                         alt="logo"></img>
                       <div class="details" style={{ color: "#096584" }}>
-                        <p>BABEGONZ</p>
+                        <p>{props.username}</p>
                       </div>
                     </div>
                     <textarea
                       placeholder="Write your reviews?"
                       spellcheck="false"
-                      required></textarea>
-            
-  <input className="options"
-    type="text"
-    placeholder="Add Link To Your Review"
-    style={{ width: '800px', height: '50px' }}
-    required
-  />
+                      required
+                      value={header}
+                      onChange={handleHeaderChange}></textarea>
 
+                    <input
+                      className="options"
+                      type="text"
+                      placeholder="Add Link To Your Review"
+                      style={{ width: "800px", height: "50px" }}
+                      required
+                      value={text}
+                      onChange={handleTextChange}
+                    />
 
-                    <button>POST YOUR REVIEW</button>
+                    <button onClick={handleSubmit}>POST YOUR REVIEW</button>
                   </form>
                 </section>
                 <section></section>
               </div>
             </div>
           </div>
-          <Reviews_user />
+          <Stack>
+            {review.map((e) => {
+              return <Reviews_user {...e} />;
+            })}
+          </Stack>
         </div>
       </div>
     </>

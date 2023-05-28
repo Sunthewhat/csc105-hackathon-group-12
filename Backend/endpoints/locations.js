@@ -12,6 +12,21 @@ const getAll = async (req, res) => {
   }
 };
 
+const getBySide = async (req, res) => {
+  const side = req.params.side;
+  const query = util.promisify(connection.query).bind(connection);
+  var sql = mysql.format("select * from locations where side = ?", [side]);
+  try {
+    const data = await query(sql);
+    // console.log(data);
+    res.status(200).send({ data: data });
+  } catch (error) {
+    res.status(500).send({
+      error: error,
+    });
+  }
+};
+
 const getPopular = async (req, res) => {
   const query = util.promisify(connection.query).bind(connection);
   var sql = mysql.format(
@@ -63,4 +78,5 @@ module.exports = {
   get,
   getPopular,
   getActivity,
+  getBySide,
 };

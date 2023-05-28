@@ -45,6 +45,8 @@ app.get("/test", testRoute.login);
 app.post("/register", Authentication.register);
 app.post("/login", Authentication.login);
 app.post("/logout", Authentication.logout);
+app.get("/getuser/:id", Authentication.getUserById);
+app.get("/getprofile", auth_middleware, Authentication.getProfile);
 //Reviews
 app.get("/review/:location_id", reviews.read);
 app.post("/review/:location_id", auth_middleware, reviews.create);
@@ -54,7 +56,8 @@ app.delete("/review/:review_id", reviews.remove);
 app.get("/location", location.getAll);
 app.get("/location/activity/:id", location.getActivity);
 app.get("/location/popular", location.getPopular);
-app.get("/location/:id", location.get);
+app.get("/location/:id", auth_middleware, location.get);
+app.get("/location/side/:side", location.getBySide);
 //Comments
 app.get("/comment/:Id", comment.getByReview);
 app.post("/comment/:Id", auth_middleware, comment.create);

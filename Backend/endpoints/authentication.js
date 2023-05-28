@@ -122,11 +122,25 @@ const getProfile = async (req, res) => {
 const logout = async (req, res) => {
   res.clearCookie("jwt_token");
   res.send();
-}
+};
 
+const getUserById = async (req, res) => {
+  const userId = req.params.id;
+  const query = util.promisify(connection.query).bind(connection);
+  try {
+    var sql = mysql.format("select * from users where id = ?", [userId]);
+    const data = await query(sql);
+    res.send({
+      data: data,
+    });
+  } catch (error) {
+    throw error;
+  }
+};
 module.exports = {
   login,
   logout,
   register,
   getProfile,
+  getUserById,
 };

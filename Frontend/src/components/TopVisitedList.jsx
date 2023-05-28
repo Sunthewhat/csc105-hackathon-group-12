@@ -1,7 +1,6 @@
-import { Grid } from "@mui/material";
 import api from "../axios";
 import { useEffect, useState } from "react";
-import Card from "./TopVisitedBeach";
+import Card from "./LocationCard";
 
 export default function TopVisitList() {
   const [topVisitedList, setTopVisitedList] = useState([]);
@@ -22,6 +21,8 @@ export default function TopVisitList() {
       style={{
         display: "flex",
         maxWidth: "100vw",
+        padding: "10px",
+        height: "100%",
         overflowX: "scroll",
         gap: "20px",
       }}>

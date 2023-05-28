@@ -1,9 +1,36 @@
-import React from "react";
-// import MenuIcon from "./MenuIcon";
+import React, { useState, useEffect } from "react";
+import MenuIcon from "./MenuIcon";
 import beach_logo from "../assets/beach_logo.png";
 import { Routes, Route, NavLink } from "react-router-dom";
 
 function Navbar() {
+  const [color, setColor] = useState("white");
+  const [bgcolor, setBgcolor] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 800) {
+        setColor("black");
+        setBgcolor(true);
+      } else {
+        setColor("white");
+        setBgcolor(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  // const componentDidMount = () => {
+  //   window.addEventListener("scroll", this.listenScrollEvent);
+  // };
+  // const
+  // state = {
+  //   color: "white",
+  // };
+
+  // };
+  // const componentDidMount = () => {
+  //   window.addEventListener("scroll", this.listenScrollEvent);
+  // };
   return (
     <>
       <style>
@@ -20,6 +47,7 @@ function Navbar() {
         padding: 10px;
         position: sticky;
         top: 0;
+        height: 100px;
         {/* background-color: rgba(255, 255, 255, 0.2); */}
         {/* width: 100% */}
       }
@@ -50,7 +78,6 @@ function Navbar() {
       }
       
       .navbar-link {
-        color: white;
         text-decoration: none;
       }
       
@@ -58,37 +85,10 @@ function Navbar() {
         color: #0ecd4d;
       }
 
-      .icon-menu{
-        display: none;
-      }
-
-      // @media screen and (max-width: 800px){
-      //   .navbar-menu{
-      //     display: flex;
-      //     flex-direction: column;
-      //     align-items: flex-end;
-      //   }
-      
-    //     .navbar {
-    //       display: flex;
-    //       align-items: center;
-    //       padding: 10px;
-    //       justify-content: space-between;
-    //     }
-
-    //     .mem-nav{
-    //       display: none;
-    //     }
-
-    //     .icon-menu{
-    //       display: block !important;
-    //     }
-
-    //   }
     
       `}
       </style>
-      <nav className="navbar">
+      <nav className="navbar" style={{backgroundColor: bgcolor == true ? "white" : "" }}>
         <div className="navbar-logo">
           <div className="pic" style={{ marginRight: "0" }}>
             <img className="logo7" src={beach_logo} alt="Logo" />
@@ -97,30 +97,28 @@ function Navbar() {
         <div className="mem-nav" style={{ justifyItems: "start" }}>
           <ul className="navbar-menu">
             <li className="navbar-item">
-              <a href="/" className="navbar-link">
+              <a href="/" className="navbar-link" style={{ color: color }}>
                 HOME
               </a>
             </li>
-            <li className="navbar-item">
-              <a href="/popular-beaches" className="navbar-link">
+            {/* <li className="navbar-item">
+              <a
+                href="/popular-beaches"
+                className="navbar-link"
+                style={{ color: color }}>
                 POPULAR BEACHES
               </a>
-            </li>
+            </li> */}
             <li className="navbar-item">
-              <a href="/guide" className="navbar-link">
+              <a href="/guide" className="navbar-link" style={{ color: color }}>
                 GUIDE PLAN
-              </a>
-            </li>
-            <li className="navbar-item">
-              <a href="/reviews" className="navbar-link">
-                REVIEWS
               </a>
             </li>
           </ul>
         </div>
-        {/* <div className="icon-menu">
+        <div className="icon-menu">
           <MenuIcon />
-        </div> */}
+        </div>
       </nav>
     </>
   );

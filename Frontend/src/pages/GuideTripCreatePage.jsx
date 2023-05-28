@@ -1,20 +1,15 @@
 import * as React from "react";
 import Navbar from "../components/Navbar";
-import TopVisitList from "../components/TopVisitedList";
-import { useNavigate } from "react-router-dom";
+import GuideCard_new from "../components/GuideCard_new";
 
-function HomePage() {
-  const navigate = useNavigate();
-  const handleClick = (e) => {
-    navigate(`/location/all/${e}`);
-  };
+function GuideTripCreatePage() {
   return (
     <>
       <style>
         {`
           html, body {
             background-image: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.5)), url("https://wallpapersmug.com/download/1024x768/a0651f/beautiful-beach-aerial-view-sea.jpg");
-            background-size:100vw 100vh;
+            background-size: 100vw 100vh;
             background-repeat: no-repeat;
           }
 
@@ -58,7 +53,7 @@ function HomePage() {
           }
 
           .wrapper{
-            height: calc(100vh - 200px);
+            height: calc(100vh - 220px);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -69,48 +64,50 @@ function HomePage() {
             grid-gap: 10px;
             background-color: #2196F3;
             padding: 10px;
-            height: 200hv;
           }
           .visited {
             scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
-            margin-left: 50px;
           }
 
+          .app-guide-view{
+            width: 100vw;
+            height: 90vh;
+            background-color: white;
+            margin: 0 auto;
+            border-radius: 20px;
+
+          }
+          
+          .app-guide-map{
+            background-image: url("../../src/assets/map.png") ;
+            width: 100vw;
+            height: 90vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
         `}
       </style>
-
       <Navbar />
-
-      <div className="wrapper" style={{ height: "100vh" }}>
-        <div className="child">
-          <div className="text">
-            <div className="text-log-in">
-              <h1>Which beach would you like to go?</h1>
-            </div>
+      <div className="app-guide" style={{ display: "flex"}}>
+        <div className="app-guide-view">
+          <div className="text-heade-guide-n" style={{ height:"50px", marginLeft: "30px", color:"#096584" }}>
+            <h1>CREATE GUIDE PLAN</h1>
+            <h1 style={{fontSize:"38px", marginTop:"-20px"}}>PATHONG</h1>
+          </div>
+          <div className="card-comp-n" style={{display:"flex", flexDirection:"column", margin:"0 auto", marginTop:"100px"}}>
+            <GuideCard_new />
+          </div>
+          <div className="add-new" style={{display:"flex", justifyContent: "center",marginTop:"30px"}}>
+            <button style={{borderRadius:"100px", width:"50px", height:"50px"}}>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/OOjs_UI_icon_add.svg/768px-OOjs_UI_icon_add.svg.png" style={{width:"30px", height:"30px"}}></img>
+            </button>
           </div>
         </div>
-        <div className="button-container">
-          <button onClick={(e)=>handleClick(2)}>
-            <span>Andaman Sea</span>
-          </button>
-          <button onClick={(e)=>handleClick(1)}>
-            <span>Gulf of Thailand</span>
-          </button>
-        </div>
-      </div>
-      <div className="wrap" style={{}}>
-        <div
-          className="visited"
-          style={{
-            height: "100vh",
-          }}>
-          <h1>TOP 10 MOST VISITED BEACH</h1>
-          <TopVisitList />
-        </div>
+        <div className="app-guide-map"></div>
       </div>
     </>
   );
 }
 
-export default HomePage;
+export default GuideTripCreatePage;

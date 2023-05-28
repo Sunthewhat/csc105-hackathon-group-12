@@ -6,7 +6,7 @@ function Beach_info(props) {
   const handleGuidePlaneClick = () => {
     setMenuVisible(true);
   };
-  console.log(props);
+  // console.log(props);
   return (
     <>
       <style>

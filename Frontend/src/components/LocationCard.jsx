@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-function TopVisitedBeach(props) {
+function LocationCard(props) {
   const navigate = useNavigate();
   return (
     <div
@@ -15,7 +15,7 @@ function TopVisitedBeach(props) {
             width: 300px;
             height: 380px;
             border-radius: 20px;
-            box-shadow: 1px 1px 20px 0px black; 
+            box-shadow: 1px 1px 5px 0px black; 
         }
 
         .pic-activities{
@@ -63,4 +63,4 @@ function TopVisitedBeach(props) {
   );
 }
 
-export default TopVisitedBeach;
+export default LocationCard;

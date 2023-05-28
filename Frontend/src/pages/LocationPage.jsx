@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 export default function LocationPage() {
   const { id } = useParams();
   const [locationData, setLocationData] = useState();
+  const [profile, setProflie] = useState();
 
   const fetchLocationData = async () => {
     try {
@@ -18,9 +19,18 @@ export default function LocationPage() {
       console.log("Error");
     }
   };
+  const fetchProfileData = async () => {
+    try {
+      const FetchedData = await api.get("/getprofile");
+      setProflie(FetchedData.data[0]);
+    } catch (error) {
+      console.log("error");
+    }
+  };
 
   useEffect(() => {
     fetchLocationData();
+    fetchProfileData();
   }, []);
 
   return (
@@ -60,7 +70,11 @@ export default function LocationPage() {
           backgroundPosition: "center",
           height: "100vh",
         }}>
-        <LocationReviews />
+        <LocationReviews
+          location={locationData?.location}
+          username={profile?.username}
+          location_id={id}
+        />
       </div>
     </>
   );

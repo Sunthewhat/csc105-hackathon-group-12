@@ -68,7 +68,7 @@ export default function activityList(props) {
                 width: "150px",
                 height: "150px",
                 backgroundImage:
-                  "url(https://media.tenor.com/0kklsaJYu5AAAAAd/banana-boat.gif)",
+                  "url(https://thumbs.gfycat.com/KindInsignificantAmericanriverotter-size_restricted.gif)",
                 backgroundSize: "cover",
               }}></div>
             <Typography
@@ -94,7 +94,7 @@ export default function activityList(props) {
                 width: "150px",
                 height: "150px",
                 backgroundImage:
-                  "url(https://www.macpara.com/media/2933/muse5-hybrid-01.jpg?anchor=center&mode=crop&width=525&height=525&rnd=132575248980000000)",
+                  "url(https://media.tenor.com/GkQhjlCR5_0AAAAd/sailingfail-sailing.gif)",
                 backgroundSize: "cover",
               }}></div>
             <Typography
